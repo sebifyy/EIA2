@@ -7,7 +7,6 @@
 // nicht kopiert und auch nicht diktiert.
 var aufgabe0;
 (function (aufgabe0) {
-    var i;
     function main() {
         var i = prompt("Wie heisst du?"); //ANZEIGE DER PROMPTBOX MIT DEM TEXT
         var node = document.getElementById("text"); //SCHNITTSTELLE FUER HTML DOKUMENT
