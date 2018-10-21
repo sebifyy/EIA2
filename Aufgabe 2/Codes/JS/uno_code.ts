@@ -55,9 +55,10 @@ namespace unogame {
                 card = cards_special[r_Special];
             }
         }
-
         console.log(card);
         console.log("++++++++++++++++++++++++++++++++++++");
+
+        
     }
 }
 
