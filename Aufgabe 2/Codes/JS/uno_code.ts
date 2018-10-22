@@ -1,6 +1,6 @@
 namespace unogame {
 
-    var color: string[] = ["red", "yellow", "green", "blue"];
+    var color: string[] = ["#ff5454", "#fffc54", "#56ff54", "#5495ff"];
     var cards_numbers: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     var cards_Zero: string = "0";
     var cards_special: string[] = ["Aussetzen", "RW", "plus2"];
@@ -11,54 +11,144 @@ namespace unogame {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
-
-
+    var i: string = prompt("Wie viele Karten sollen ausgeteilt werden?");
+    var counter: number = Number(i);
     // GENERELLE FOR SCHLEIFE DIE 5 MAL DURCHLAEUFT
-    for (var i: number = 0; i < 5; i++) {
+    for (var u: number = 0; u < counter; u++) {
         var card: string = "";
         var r_color: number = randomBetween(1, 1000);
         console.log(r_color);
 
 
-
-
-
-        // WENN r_color KLEINER ALS 74 DANN ENTSCHEIDE ZWISCHEN JOKER/PLUS4 KARTE
-        if (r_color <= 74) {
+        if (r_color <= 74) { // WENN r_color KLEINER ALS 74 DANN ENTSCHEIDE ZWISCHEN JOKER/PLUS4 KARTE
             console.log("BLACK CARD");
 
             var r_black: number = randomBetween(0, 1);
             card = cards_black[r_black]
         }
-
-
         else {
             console.log("COLORED CARD")
 
             var r_Zero: number = randomBetween(0, 1000);
-            //console.log(r_Zero);
 
             //ZERO KARTE
             if (r_Zero <= 37) {
-                card = "Zero"
+                //card = "Zero"
+
+                //FARBE AUSWAEHLEN
+                var WhichColor = randomBetween(0, 3);
+                console.log("FARBE: " + WhichColor);
+                switch (WhichColor) {
+                    case 0: //RED
+                        var red: string = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, "0");
+                        card = "RED ZERO";
+                        break;
+
+                    case 1: //YELLOW
+                        var yellow: string = color[WhichColor];
+                        placeDiv(yellow, 50, 50, 75, 150, "0");
+                        card = "YELLOW ZERO";
+                        break;
+
+                    case 2: //GREEN
+                        var green: string = color[WhichColor];
+                        placeDiv(yellow, 50, 50, 75, 150, "0");
+                        card = "GREEN ZERO";
+                        break;
+
+                    case 3: //BLUE
+                        var blue: string = color[WhichColor];
+                        placeDiv(blue, 50, 50, 75, 150, "0");
+                        card = "BLUE ZERO";
+                        break;
+                }
             }
 
-            //NUMMER AUSWAEHLEN
+            //WENN KEINE NULL, DANN NUMMER AUSWAEHLEN
             else if (r_Zero > 37 && r_Zero < 760) {
                 var r_Number: number = randomBetween(1, 9);
-                card = String(r_Number);
+
+                //FARBE AUSWAEHLEN
+                var WhichColor = randomBetween(0, 3);
+                console.log("FARBE: " + WhichColor);
+
+                switch (WhichColor) {
+                    case 0: //RED
+                        var red: string = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, <string><any>r_Number);
+                        card = String(r_Number);
+                        break;
+
+                    case 1: //YELLOW
+                        var yellow: string = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, <string><any>r_Number);
+                        card = String(r_Number);
+                        break;
+
+                    case 2: //GREEN
+                        var green: string = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, <string><any>r_Number);
+                        card = String(r_Number);
+                        break;
+
+                    case 3: //BLUE
+                        var blue: string = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, <string><any>r_Number);
+                        card = String(r_Number);
+                        break;
+                }
+
             }
 
             //SPECIAL KARTE    
             else if (r_Zero >= 760) {
                 var r_Special: number = randomBetween(0, 2);
-                card = cards_special[r_Special];
+
+
+                switch (r_Special) {
+                    case 0: //RED
+                        var red: string = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, <string><any>r_Special);
+                        card = String(r_Special);
+                        break;
+
+                    case 1: //YELLOW
+                        var yellow: string = color[WhichColor];
+                        placeDiv(yellow, 50, 50, 75, 150, <string><any>r_Special);
+                        card = String(r_Special);
+                        break;
+
+                    case 2: //GREEN
+                        var green: string = color[WhichColor];
+                        placeDiv(green, 50, 50, 75, 150, <string><any>r_Special);
+                        card = String(r_Special);
+                        break;
+                }
             }
         }
         console.log(card);
         console.log("++++++++++++++++++++++++++++++++++++");
 
-        
+
+    }
+
+    function placeDiv(_color: string, _x: number, _y: number, _width: number, _height: number, text: string): void {
+        let div: HTMLDivElement = document.createElement("div");
+        document.body.appendChild(div);
+
+        div.setAttribute("id", "Karte#" + u) //div ID in Abh�ngigkeit von _x (aktuelle Karte die gegeben wird)
+
+        document.getElementById("Karte#" + u).innerHTML = text;
+
+        let s: CSSStyleDeclaration = div.style;
+        s.border = "3px solid black";
+        s.position = "relative";
+        s.backgroundColor = _color;
+        s.width = _width + "px";
+        s.height = _height + "px";
+        s.left = _x + "px";
+        s.top = _y + "px";
     }
 }
 

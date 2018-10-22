@@ -1,6 +1,6 @@
 var unogame;
 (function (unogame) {
-    var color = ["red", "yellow", "green", "blue"];
+    var color = ["#ff5454", "#fffc54", "#56ff54", "#5495ff"];
     var cards_numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     var cards_Zero = "0";
     var cards_special = ["Aussetzen", "RW", "plus2"];
@@ -9,12 +9,13 @@ var unogame;
     function randomBetween(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
+    var i = prompt("Wie viele Karten sollen ausgeteilt werden?");
+    var counter = Number(i);
     // GENERELLE FOR SCHLEIFE DIE 5 MAL DURCHLAEUFT
-    for (var i = 0; i < 5; i++) {
+    for (var u = 0; u < counter; u++) {
         var card = "";
         var r_color = randomBetween(1, 1000);
         console.log(r_color);
-        // WENN r_color KLEINER ALS 74 DANN ENTSCHEIDE ZWISCHEN JOKER/PLUS4 KARTE
         if (r_color <= 74) {
             console.log("BLACK CARD");
             var r_black = randomBetween(0, 1);
@@ -23,22 +24,100 @@ var unogame;
         else {
             console.log("COLORED CARD");
             var r_Zero = randomBetween(0, 1000);
-            //console.log(r_Zero);
             //ZERO KARTE
             if (r_Zero <= 37) {
-                card = "Zero";
+                //card = "Zero"
+                //FARBE AUSWAEHLEN
+                var WhichColor = randomBetween(0, 3);
+                console.log("FARBE: " + WhichColor);
+                switch (WhichColor) {
+                    case 0:
+                        var red = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, "0");
+                        card = "RED ZERO";
+                        break;
+                    case 1:
+                        var yellow = color[WhichColor];
+                        placeDiv(yellow, 50, 50, 75, 150, "0");
+                        card = "YELLOW ZERO";
+                        break;
+                    case 2:
+                        var green = color[WhichColor];
+                        placeDiv(yellow, 50, 50, 75, 150, "0");
+                        card = "GREEN ZERO";
+                        break;
+                    case 3:
+                        var blue = color[WhichColor];
+                        placeDiv(blue, 50, 50, 75, 150, "0");
+                        card = "BLUE ZERO";
+                        break;
+                }
             }
             else if (r_Zero > 37 && r_Zero < 760) {
                 var r_Number = randomBetween(1, 9);
-                card = String(r_Number);
+                //FARBE AUSWAEHLEN
+                var WhichColor = randomBetween(0, 3);
+                console.log("FARBE: " + WhichColor);
+                switch (WhichColor) {
+                    case 0:
+                        var red = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, r_Number);
+                        card = String(r_Number);
+                        break;
+                    case 1:
+                        var yellow = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, r_Number);
+                        card = String(r_Number);
+                        break;
+                    case 2:
+                        var green = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, r_Number);
+                        card = String(r_Number);
+                        break;
+                    case 3:
+                        var blue = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, r_Number);
+                        card = String(r_Number);
+                        break;
+                }
             }
             else if (r_Zero >= 760) {
                 var r_Special = randomBetween(0, 2);
-                card = cards_special[r_Special];
+                switch (r_Special) {
+                    case 0:
+                        var red = color[WhichColor];
+                        placeDiv(red, 50, 50, 75, 150, r_Special);
+                        card = String(r_Special);
+                        break;
+                    case 1:
+                        var yellow = color[WhichColor];
+                        placeDiv(yellow, 50, 50, 75, 150, r_Special);
+                        card = String(r_Special);
+                        break;
+                    case 2:
+                        var green = color[WhichColor];
+                        placeDiv(green, 50, 50, 75, 150, r_Special);
+                        card = String(r_Special);
+                        break;
+                }
             }
         }
         console.log(card);
         console.log("++++++++++++++++++++++++++++++++++++");
+    }
+    function placeDiv(_color, _x, _y, _width, _height, text) {
+        let div = document.createElement("div");
+        document.body.appendChild(div);
+        div.setAttribute("id", "Karte#" + u); //div ID in Abh�ngigkeit von _x (aktuelle Karte die gegeben wird)
+        document.getElementById("Karte#" + u).innerHTML = text;
+        let s = div.style;
+        s.border = "3px solid black";
+        s.position = "relative";
+        s.backgroundColor = _color;
+        s.width = _width + "px";
+        s.height = _height + "px";
+        s.left = _x + "px";
+        s.top = _y + "px";
     }
 })(unogame || (unogame = {}));
 //# sourceMappingURL=uno_code.js.map
