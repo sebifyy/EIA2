@@ -1,6 +1,6 @@
 namespace unogame {
 
-    var color: string[] = ["#ff5454", "#fffc54", "#56ff54", "#5495ff"];
+    var color: string[] = ["#ff5454", "#fffc54", "#56ff54", "#5495ff", "#424242"];
     var cards_numbers: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     var cards_Zero: string = "0";
     var cards_special: string[] = ["Aussetzen", "RW", "plus2"];
@@ -24,7 +24,12 @@ namespace unogame {
             console.log("BLACK CARD");
 
             var r_black: number = randomBetween(0, 1);
-            card = cards_black[r_black]
+            card = cards_black[r_black];
+
+            if (r_black == 0) {
+                var black = color[4];
+                placeDiv(black, 50, 50, 75, 150, cards_black[r_black]);
+            }
         }
         else {
             console.log("COLORED CARD")
@@ -53,7 +58,7 @@ namespace unogame {
 
                     case 2: //GREEN
                         var green: string = color[WhichColor];
-                        placeDiv(yellow, 50, 50, 75, 150, "0");
+                        placeDiv(green, 50, 50, 75, 150, "0");
                         card = "GREEN ZERO";
                         break;
 
@@ -124,6 +129,11 @@ namespace unogame {
                         placeDiv(green, 50, 50, 75, 150, <string><any>r_Special);
                         card = String(r_Special);
                         break;
+
+                    case 3: //BLUE
+                        var blue: string = color[WhichColor];
+                        placeDiv(blue, 50, 50, 75, 150, <string><any>r_Special);
+                        card = String(r_Special);
                 }
             }
         }
@@ -131,6 +141,7 @@ namespace unogame {
 
         console.log("Variable i: " + i);
         console.log("Counter: " + counter);
+        console.log("Variable u: " + u);
         console.log("++++++++++++++++++++++++++++++++++++");
 
 

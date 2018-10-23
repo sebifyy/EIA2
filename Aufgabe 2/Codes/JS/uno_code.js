@@ -1,6 +1,6 @@
 var unogame;
 (function (unogame) {
-    var color = ["#ff5454", "#fffc54", "#56ff54", "#5495ff"];
+    var color = ["#ff5454", "#fffc54", "#56ff54", "#5495ff", "#424242"];
     var cards_numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     var cards_Zero = "0";
     var cards_special = ["Aussetzen", "RW", "plus2"];
@@ -20,6 +20,10 @@ var unogame;
             console.log("BLACK CARD");
             var r_black = randomBetween(0, 1);
             card = cards_black[r_black];
+            if (r_black == 0) {
+                var black = color[4];
+                placeDiv(black, 50, 50, 75, 150, cards_black[r_black]);
+            }
         }
         else {
             console.log("COLORED CARD");
@@ -43,7 +47,7 @@ var unogame;
                         break;
                     case 2:
                         var green = color[WhichColor];
-                        placeDiv(yellow, 50, 50, 75, 150, "0");
+                        placeDiv(green, 50, 50, 75, 150, "0");
                         card = "GREEN ZERO";
                         break;
                     case 3:
@@ -99,12 +103,17 @@ var unogame;
                         placeDiv(green, 50, 50, 75, 150, r_Special);
                         card = String(r_Special);
                         break;
+                    case 3:
+                        var blue = color[WhichColor];
+                        placeDiv(blue, 50, 50, 75, 150, r_Special);
+                        card = String(r_Special);
                 }
             }
         }
         console.log(card);
         console.log("Variable i: " + i);
         console.log("Counter: " + counter);
+        console.log("Variable u: " + u);
         console.log("++++++++++++++++++++++++++++++++++++");
     }
     function placeDiv(_color, _x, _y, _width, _height, text) {
