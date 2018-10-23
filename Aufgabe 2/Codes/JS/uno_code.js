@@ -103,6 +103,8 @@ var unogame;
             }
         }
         console.log(card);
+        console.log("Variable i: " + i);
+        console.log("Counter: " + counter);
         console.log("++++++++++++++++++++++++++++++++++++");
     }
     function placeDiv(_color, _x, _y, _width, _height, text) {

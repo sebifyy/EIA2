@@ -128,7 +128,12 @@ namespace unogame {
             }
         }
         console.log(card);
+
+        console.log("Variable i: " + i);
+        console.log("Counter: " + counter);
         console.log("++++++++++++++++++++++++++++++++++++");
+
+
 
 
     }
