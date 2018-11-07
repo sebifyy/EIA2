@@ -37,11 +37,11 @@ namespace unogame2 {
             x.innerText = handCards[i].value;
             x.classList.add("card");
             x.classList.add(handCards[i].color);
-            document.getElementById("card").appendChild(x);
+            document.getElementById("HandCards").appendChild(x);
         }
     }
+    
     randomCards();
     displayCards();
-
     console.log(card);
 }

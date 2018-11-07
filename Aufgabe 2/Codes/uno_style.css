@@ -7,19 +7,52 @@ body {
 	text-transform: uppercase;
 }
 
-div {
+.top {
+	margin-bottom: 100px;
+	background-color: #cacaca;
+	height: 300px;
+	width: 100%;
+}
+
+#stapel {
+	background-color: #343434;
 	width: 195px;
 	height: 275px;
-	background-color: black;
+	color: white;
+	float: left;
+	margin-right: 30em;
+}
+
+#ablage {
+	background-color: #343434;
+	width: 195px;
+	height: 275px;
 	color: white;
 	float: left;
 	margin: 0 2em;
 }
 
-#stapel {
+.card {
 	background-color: #343434;
+	width: 195px;
+	height: 275px;
+	color: white;
+	float: left;
+	margin: 0 2em;
 }
 
-#ablage {
-	background-color: #343434;
+.Green {
+	background-color: #00e800;
+}
+
+.Red {
+	background-color: #e80000;
+}
+
+.Blue {
+	background-color: #0011e8;
+}
+
+.Yellow {
+	background-color: #ffff06;
 }
