@@ -76,7 +76,7 @@ namespace unogame2 {
     for (let i: number = 0; i < colors.length; i++) {
         for (let a: number = 0; a < values.length; a++) {
             for (let z: number = 0; z < 2; z++) {
-                var card: Card = { color: colors[i], value: values[i] };
+                var card: Card = { color: colors[i], value: values[a] };
                 deck.push(card);
             }
         }

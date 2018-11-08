@@ -58,7 +58,7 @@ var unogame2;
     for (let i = 0; i < colors.length; i++) {
         for (let a = 0; a < values.length; a++) {
             for (let z = 0; z < 2; z++) {
-                var card = { color: colors[i], value: values[i] };
+                var card = { color: colors[i], value: values[a] };
                 deck.push(card);
             }
         }
