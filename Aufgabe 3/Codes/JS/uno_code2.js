@@ -59,10 +59,8 @@ var unogame3;
     function listeners() {
         document.getElementById("draw").addEventListener("click", getNewCard);
         document.addEventListener("keyup", getNewCardSpace);
-        //for (let i: number = 0; i < handCards.length; i++) {
-        //document.getElementById(String(handCards.indexOf(i)));
-        //   }
-        // document.getElementById("sort").addEventListener("click", sortByColor);
+        document.getElementById("HandCards").addEventListener("click", playCard);
+        document.getElementById("sort").addEventListener("click", sortByColor);
     }
     function getNewCard() {
         randomCards(1);
@@ -75,8 +73,38 @@ var unogame3;
             displayCards();
         }
     }
-    //function sortByColor(): void {
-    // }
+    function playCard(_event) {
+        let handcardId = event.target.id;
+        console.log(handcardId);
+        document.getElementById("ablage").innerHTML = "";
+        let cardToPlay = document.createElement("div");
+        cardToPlay.innerText = handCards[Number(handcardId)].value;
+        cardToPlay.classList.add("card");
+        cardToPlay.classList.add(handCards[Number(handcardId)].color);
+        cardToPlay.setAttribute("id", String([Number(handcardId)]));
+        document.getElementById("ablage").appendChild(cardToPlay);
+        //GESPIELTE KARTE AUS HANDCARDS LOESCHEN
+        handCards.splice(Number(handcardId), 1);
+        displayCards();
+    }
+    function sortByColor() {
+        handCards.sort(function (one, two) {
+            if (one.color > two.color) {
+                return 1;
+            }
+            if (one.color < two.color) {
+                return -1;
+            }
+            if (one.value > two.value) {
+                return 1;
+            }
+            if (one.value < two.value) {
+                return -1;
+            }
+            return 0;
+        });
+        displayCards();
+    }
     // ________________________________________________GENERIERUNG DER MEISTEN KARTEN__________________________________________
     for (let i = 0; i < colors.length; i++) {
         for (let a = 0; a < values.length; a++) {
@@ -111,6 +139,6 @@ var unogame3;
     randomCards();
     displayCards();
     listeners();
-    console.log(card);
+    console.log(handCards);
 })(unogame3 || (unogame3 = {}));
 //# sourceMappingURL=uno_code2.js.map
