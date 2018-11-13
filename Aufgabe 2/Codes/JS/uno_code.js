@@ -11,7 +11,7 @@ var unogame;
     }
     var i = prompt("Wie viele Karten sollen ausgeteilt werden?");
     var counter = Number(i);
-    // GENERELLE FOR SCHLEIFE DIE 5 MAL DURCHLAEUFT
+    // GENERELLE FOR SCHLEIFE DIE u-mal DURCHLAEUFT
     for (var u = 0; u < counter; u++) {
         var card = "";
         var r_color = randomBetween(1, 1000);
@@ -28,62 +28,16 @@ var unogame;
         else {
             console.log("COLORED CARD");
             var r_Zero = randomBetween(0, 1000);
+            var whichColor = color[randomBetween(0, 3)]; //FARBAUSWAHL
             //ZERO KARTE
             if (r_Zero <= 37) {
-                //card = "Zero"
-                //FARBE AUSWAEHLEN
-                var WhichColor = randomBetween(0, 3);
-                console.log("FARBE: " + WhichColor);
-                switch (WhichColor) {
-                    case 0:
-                        var red = color[WhichColor];
-                        placeDiv(red, 50, 50, 75, 150, "0");
-                        card = "RED ZERO";
-                        break;
-                    case 1:
-                        var yellow = color[WhichColor];
-                        placeDiv(yellow, 50, 50, 75, 150, "0");
-                        card = "YELLOW ZERO";
-                        break;
-                    case 2:
-                        var green = color[WhichColor];
-                        placeDiv(green, 50, 50, 75, 150, "0");
-                        card = "GREEN ZERO";
-                        break;
-                    case 3:
-                        var blue = color[WhichColor];
-                        placeDiv(blue, 50, 50, 75, 150, "0");
-                        card = "BLUE ZERO";
-                        break;
-                }
+                card = "0";
             }
             else if (r_Zero > 37 && r_Zero < 760) {
-                var r_Number = randomBetween(1, 9);
+                var rNumber = randomBetween(1, 9);
                 //FARBE AUSWAEHLEN
                 var WhichColor = randomBetween(0, 3);
                 console.log("FARBE: " + WhichColor);
-                switch (WhichColor) {
-                    case 0:
-                        var red = color[WhichColor];
-                        placeDiv(red, 50, 50, 75, 150, r_Number);
-                        card = String(r_Number);
-                        break;
-                    case 1:
-                        var yellow = color[WhichColor];
-                        placeDiv(red, 50, 50, 75, 150, r_Number);
-                        card = String(r_Number);
-                        break;
-                    case 2:
-                        var green = color[WhichColor];
-                        placeDiv(red, 50, 50, 75, 150, r_Number);
-                        card = String(r_Number);
-                        break;
-                    case 3:
-                        var blue = color[WhichColor];
-                        placeDiv(red, 50, 50, 75, 150, r_Number);
-                        card = String(r_Number);
-                        break;
-                }
             }
             else if (r_Zero >= 760) {
                 var r_Special = randomBetween(0, 2);
@@ -110,6 +64,7 @@ var unogame;
                 }
             }
         }
+        placeDiv(whichColor, 50, 50, 75, 150, card);
         console.log(card);
         console.log("Variable i: " + i);
         console.log("Counter: " + counter);

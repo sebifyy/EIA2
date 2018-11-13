@@ -77,10 +77,8 @@ namespace unogame3 {
     function listeners(): void {
         document.getElementById("draw").addEventListener("click", getNewCard);
         document.addEventListener("keyup", getNewCardSpace);
-        //for (let i: number = 0; i < handCards.length; i++) {
-        //document.getElementById(String(handCards.indexOf(i)));
-        //   }
-        // document.getElementById("sort").addEventListener("click", sortByColor);
+        document.getElementById("HandCards").addEventListener("click", playCard);
+        document.getElementById("sort").addEventListener("click", sortByColor);
     }
 
 
@@ -96,8 +94,42 @@ namespace unogame3 {
             displayCards();
         }
     }
-    //function sortByColor(): void {
-    // }
+
+    function playCard(_event: Event): void {
+        let handcardId: string = (event.target as Element).id;
+        console.log(handcardId);
+        document.getElementById("ablage").innerHTML = "";
+        let cardToPlay: HTMLElement = document.createElement("div");
+        cardToPlay.innerText = handCards[Number(handcardId)].value;
+        cardToPlay.classList.add("card");
+        cardToPlay.classList.add(handCards[Number(handcardId)].color);
+        cardToPlay.setAttribute("id", String([Number(handcardId)]));
+        document.getElementById("ablage").appendChild(cardToPlay);
+
+        //GESPIELTE KARTE AUS HANDCARDS LOESCHEN
+        handCards.splice(Number(handcardId), 1);
+        displayCards();
+    }
+
+    function sortByColor(): void {
+        handCards.sort(function(one: Card, two: Card): number {
+            if (one.color > two.color) {
+                return 1;
+            }
+            if (one.color < two.color) {
+                return -1;
+            }
+            if (one.value > two.value) {
+                return 1;
+            }
+            if (one.value < two.value) {
+                return -1;
+            }
+            return 0;
+
+        });
+        displayCards();
+    }
 
 
     // ________________________________________________GENERIERUNG DER MEISTEN KARTEN__________________________________________
@@ -139,5 +171,5 @@ namespace unogame3 {
     randomCards();
     displayCards();
     listeners();
-    console.log(card);
+    console.log(handCards);
 }
