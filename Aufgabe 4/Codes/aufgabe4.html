@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aufgabe4 - Baumkonfigurator</title>
+</head>
+<body>
+	<h1>Weihnachtsbaumkonfigurator</h1>
+	<fieldset id="treeConfigurator">
+
+		<h2>Baumart</h2>
+		<p>Wählen Sie Ihre gewünschte Baumart</p>
+		<select id="treeType" name="Baumart"></select>
+
+		<h2>Halterung</h2>
+		<p>Wählen Sie Ihre gewünschte Halterung</p>
+		<select id="holderType" name="Halterung"></select>
+
+		<h2>Kerzen</h2>
+		<p>Möchten Sie Kerzen auf Ihrem Baum haben?</p>
+		<select id="candleType" name="Kerzen"></select>
+
+		<h2>Extras</h2>
+		<!-- WIRD PER TS GENERIERT ALS CHECKBOX -->
+	</fieldset>
+
+
+	<fieldset id="checkoutData">
+		<h2>Persönliche Daten</h2>
+		<p>Um Ihre Bestellung entgegen nehmen zu können, brauchen wir da
+			noch einige Daten von Ihnen.</p>
+		<h3>Vollständiger Name</h3>
+		<input id="checkoutDataName" type="text" name="Name"></input>
+
+		<h3>E-Mail Adresse</h3>
+		<input id="checkoutDataEmail" type="email" name="Email"></input>
+
+		<h3>Strasse</h3>
+		<input id="checkoutDataStreet" type="text" name="Strasse"></input>
+
+		<h3>Hausnummer</h3>
+		<input id="checkoutDataHouseNmb" type="text" name="Hausnummer"></input>
+
+		<h3>Postleitzahl</h3>
+		<input id="checkoutDataPostalcode" type="text" name="Postleitzahl"></input>
+
+		<h3>Stadt</h3>
+		<input id="checkoutDataCity" type="text" name="Stadtname"></input>
+
+		<p>
+			<button id="cehckoutVerify">CHECKOUT</button>
+		</p>
+	</fieldset>
+</body>
+</html>
