@@ -14,18 +14,25 @@
 		<h2>Baumart</h2>
 		<p>Wählen Sie Ihre gewünschte Baumart</p>
 		<select id="treeType" name="Baumart">
+			<option disabled selected>Bitte Baum auswählen</option>
 		</select>
 
 		<h2>Halterung</h2>
 		<p>Wählen Sie Ihre gewünschte Halterung</p>
-		<select id="holderType" name="Halterung"></select>
+		<select id="holderType" name="Halterung">
+			<option disabled selected>Bitte Baum auswählen</option>
+		</select>
 
 		<h2>Kerzen</h2>
 		<p>Möchten Sie Kerzen auf Ihrem Baum haben?</p>
-		<select id="candleType" name="Kerzen"></select>
+		<select id="candleType" name="Kerzen">
+			<option disabled selected>Bitte Baum auswählen</option>
+		</select>
 
 		<h2>Extras</h2>
 		<div id="extras"></div>
+
+
 		<!-- WIRD PER TS GENERIERT ALS CHECKBOX -->
 	</fieldset>
 
@@ -37,8 +44,18 @@
 		<h3>Halterung</h3>
 		<p id="selectedHolder"></p>
 
+		<h3>Kerzen</h3>
+		<p id="selectedCandle"></p>
+
 		<h3>Extras</h3>
 		<p id="selectedExtras"></p>
+
+		<h2>Versand</h2>
+		<div id="selectedShipping"></div>
+
+		<p id="totalPrice"></p>
+
+
 	</div>
 
 	<fieldset id="checkoutData">
@@ -64,9 +81,13 @@
 		<input id="checkoutDataCity" type="text" name="Stadtname"></input>
 
 		<p>
-			<button id="cehckoutVerify">CHECKOUT</button>
+			<button id="checkoutVerify">CHECKOUT</button>
 		</p>
+
+		<select id="shippingType"><option disabled selected>Bitte
+				Versanddienstleister auswählen</option></select>
 	</fieldset>
+
 
 </body>
 </html>

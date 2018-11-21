@@ -20,5 +20,10 @@ var aufg4;
     let extra2 = { name: "Lametta Rot", price: 4.90 };
     let extra3 = { name: "Weihnachtskugeln gemischt", price: 14.90 };
     aufg4.allExtras = [extra1, extra2, extra3];
+    //_____________________________________________VERSAND
+    let shipping1 = { name: "DHL", price: 29.90 };
+    let shipping2 = { name: "UPS", price: 45.90 };
+    let shipping3 = { name: "Selbstabholung", price: 0.00 };
+    aufg4.allShippingOptions = [shipping1, shipping2, shipping3];
 })(aufg4 || (aufg4 = {}));
 //# sourceMappingURL=articles.js.map

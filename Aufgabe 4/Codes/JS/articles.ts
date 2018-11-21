@@ -1,6 +1,6 @@
 namespace aufg4 {
 
-    interface ArticleType {
+    export interface ArticleType {
         name: string;
         price: number;
     }
@@ -32,4 +32,11 @@ namespace aufg4 {
     let extra3: ArticleType = { name: "Weihnachtskugeln gemischt", price: 14.90 };
 
     export let allExtras: ArticleType[] = [extra1, extra2, extra3];
+
+    //_____________________________________________VERSAND
+    let shipping1: ArticleType = { name: "DHL", price: 29.90 };
+    let shipping2: ArticleType = { name: "UPS", price: 45.90 };
+    let shipping3: ArticleType = { name: "Selbstabholung", price: 0.00 };
+
+    export let allShippingOptions: ArticleType[] = [shipping1, shipping2, shipping3];
 }
