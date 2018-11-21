@@ -51,6 +51,7 @@ namespace aufg4 {
         //node.addEventListener("change", showCurrentSelection);
     } */
 
+    
     //_______________________________________________EXTRAS EINFUEGEN
     function fillExtras(): void {
         let node: HTMLElement = document.getElementById("extras");
@@ -62,6 +63,7 @@ namespace aufg4 {
         node.addEventListener("change", showCurrentExtras);
     }
 
+    
     //________________________________________________AKTUELLE BESTELLUNG ANZEIGEN
     function showCurrentSelection(_htmlId: string, _srcArray: ArticleType[], _targetHtmlId: string): void {
         let node: HTMLSelectElement = (document.getElementById(_htmlId)) as HTMLSelectElement;
@@ -73,6 +75,7 @@ namespace aufg4 {
         //node.innerHTML
     }
 
+    
     //_______________________________________________________PREIS VON DEN SELECT
     function getSectionPrice(): number {
         let totalPrice: number = 0;
@@ -84,6 +87,7 @@ namespace aufg4 {
         return totalPrice;
     }
 
+    
     //_______________________________________________________PREIS VON DEN CHECKBOXEN
     function getExtrasPrice(): number {
         let totalPrice: number = 0;
