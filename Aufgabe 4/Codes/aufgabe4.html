@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Aufgabe4 - Baumkonfigurator</title>
+
 <script src="JS/articles.js"></script>
 <script src="JS/functions.js"></script>
 </head>
@@ -12,7 +13,8 @@
 
 		<h2>Baumart</h2>
 		<p>Wählen Sie Ihre gewünschte Baumart</p>
-		<select id="treeType" name="Baumart"></select>
+		<select id="treeType" name="Baumart">
+		</select>
 
 		<h2>Halterung</h2>
 		<p>Wählen Sie Ihre gewünschte Halterung</p>
@@ -23,9 +25,21 @@
 		<select id="candleType" name="Kerzen"></select>
 
 		<h2>Extras</h2>
+		<div id="extras"></div>
 		<!-- WIRD PER TS GENERIERT ALS CHECKBOX -->
 	</fieldset>
 
+	<div id="currentSelection">
+		<h2>Aktuelle Bestellung</h2>
+		<h3>Baumart</h3>
+		<p id="selectedTree"></p>
+
+		<h3>Halterung</h3>
+		<p id="selectedHolder"></p>
+
+		<h3>Extras</h3>
+		<p id="selectedExtras"></p>
+	</div>
 
 	<fieldset id="checkoutData">
 		<h2>Persönliche Daten</h2>
@@ -53,5 +67,6 @@
 			<button id="cehckoutVerify">CHECKOUT</button>
 		</p>
 	</fieldset>
+
 </body>
 </html>

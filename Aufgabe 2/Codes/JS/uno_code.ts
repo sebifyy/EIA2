@@ -13,14 +13,14 @@ namespace unogame {
 
     var i: string = prompt("Wie viele Karten sollen ausgeteilt werden?");
     var counter: number = Number(i);
-    // GENERELLE FOR SCHLEIFE DIE 5 MAL DURCHLAEUFT
+    // GENERELLE FOR SCHLEIFE DIE u-mal DURCHLAEUFT
     for (var u: number = 0; u < counter; u++) {
         var card: string = "";
         var r_color: number = randomBetween(1, 1000);
         console.log(r_color);
 
 
-        if (r_color <= 74) { // WENN r_color KLEINER ALS 74 DANN ENTSCHEIDE ZWISCHEN JOKER/PLUS4 KARTE
+        if (r_color <= 74) { // WENN r_color KLEINER/GLEICH ALS 74 DANN ENTSCHEIDE ZWISCHEN JOKER/PLUS4 KARTE
             console.log("BLACK CARD");
 
             var r_black: number = randomBetween(0, 1);
@@ -31,78 +31,22 @@ namespace unogame {
                 placeDiv(black, 50, 50, 75, 150, cards_black[r_black]);
             }
         }
+
         else {
             console.log("COLORED CARD")
 
             var r_Zero: number = randomBetween(0, 1000);
+            var whichColor: string = color[randomBetween(0, 3)]; //FARBAUSWAHL
 
             //ZERO KARTE
             if (r_Zero <= 37) {
-                //card = "Zero"
-
-                //FARBE AUSWAEHLEN
-                var WhichColor = randomBetween(0, 3);
-                console.log("FARBE: " + WhichColor);
-                switch (WhichColor) {
-                    case 0: //RED
-                        var red: string = color[WhichColor];
-                        placeDiv(red, 50, 50, 75, 150, "0");
-                        card = "RED ZERO";
-                        break;
-
-                    case 1: //YELLOW
-                        var yellow: string = color[WhichColor];
-                        placeDiv(yellow, 50, 50, 75, 150, "0");
-                        card = "YELLOW ZERO";
-                        break;
-
-                    case 2: //GREEN
-                        var green: string = color[WhichColor];
-                        placeDiv(green, 50, 50, 75, 150, "0");
-                        card = "GREEN ZERO";
-                        break;
-
-                    case 3: //BLUE
-                        var blue: string = color[WhichColor];
-                        placeDiv(blue, 50, 50, 75, 150, "0");
-                        card = "BLUE ZERO";
-                        break;
-                }
+                card = "0";
             }
+
 
             //WENN KEINE NULL, DANN NUMMER AUSWAEHLEN
             else if (r_Zero > 37 && r_Zero < 760) {
-                var r_Number: number = randomBetween(1, 9);
-
-                //FARBE AUSWAEHLEN
-                var WhichColor = randomBetween(0, 3);
-                console.log("FARBE: " + WhichColor);
-
-                switch (WhichColor) {
-                    case 0: //RED
-                        var red: string = color[WhichColor];
-                        placeDiv(red, 50, 50, 75, 150, <string><any>r_Number);
-                        card = String(r_Number);
-                        break;
-
-                    case 1: //YELLOW
-                        var yellow: string = color[WhichColor];
-                        placeDiv(red, 50, 50, 75, 150, <string><any>r_Number);
-                        card = String(r_Number);
-                        break;
-
-                    case 2: //GREEN
-                        var green: string = color[WhichColor];
-                        placeDiv(red, 50, 50, 75, 150, <string><any>r_Number);
-                        card = String(r_Number);
-                        break;
-
-                    case 3: //BLUE
-                        var blue: string = color[WhichColor];
-                        placeDiv(red, 50, 50, 75, 150, <string><any>r_Number);
-                        card = String(r_Number);
-                        break;
-                }
+                card = String(randomBetween(1, 9));
 
             }
 
@@ -137,6 +81,8 @@ namespace unogame {
                 }
             }
         }
+        placeDiv(whichColor, 50, 50, 75, 150, card);
+
         console.log(card);
 
         console.log("Variable i: " + i);
