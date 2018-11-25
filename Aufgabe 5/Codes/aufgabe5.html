@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aufgabe 5 - Baumkonfigurator</title>
+<link rel="stylesheet" type="text/css" href="shopstyle.css">
+
+<script src="JS/articles.js"></script>
+<script src="JS/functions.js"></script>
+</head>
+
+
+<body>
+	<h1>Weihnachtsbaumkonfigurator</h1>
+	<fieldset id="treeConfigurator">
+
+		<h2>Baumart</h2>
+		<p>Wählen Sie Ihre gewünschte Baumart</p>
+		<select id="treeType" name="Baumart">
+			<option disabled selected>Bitte Baum auswählen</option>
+		</select>
+
+		<h2>Halterung</h2>
+		<p>Wählen Sie Ihre gewünschte Halterung</p>
+		<select id="holderType" name="Halterung">
+			<option disabled selected>Bitte Halterung auswählen</option>
+		</select>
+
+		<h2>Kerzen</h2>
+		<p>Möchten Sie Kerzen auf Ihrem Baum haben?</p>
+		<select id="candleType" name="Kerzen">
+			<option disabled selected>Bitte Kerzen auswählen</option>
+		</select>
+
+		<h2>Extras</h2>
+		<div id="extras"></div>
+
+
+		<!-- WIRD PER TS GENERIERT ALS CHECKBOX -->
+	</fieldset>
+
+	<div id="currentSelection">
+		<h2>Aktuelle Bestellung</h2>
+		<h3>Baumart</h3>
+		<p id="selectedTree"></p>
+
+		<h3>Halterung</h3>
+		<p id="selectedHolder"></p>
+
+		<h3>Kerzen</h3>
+		<p id="selectedCandle"></p>
+
+		<h3>Extras</h3>
+		<p id="selectedExtras"></p>
+
+		<h2>Versand</h2>
+		<div id="selectedShipping"></div>
+
+		<p id="totalPrice"></p>
+
+
+	</div>
+
+	<fieldset id="checkoutData">
+		<h2>Persönliche Daten</h2>
+		<p>Um Ihre Bestellung entgegen nehmen zu können, brauchen wir da
+			noch einige Daten von Ihnen.</p>
+		<h3>Vollständiger Name</h3>
+		<input id="checkoutDataName" type="text" name="Name"></input>
+
+		<h3>E-Mail Adresse</h3>
+		<input id="checkoutDataEmail" type="email" name="Email"></input>
+
+		<h3>Strasse</h3>
+		<input id="checkoutDataStreet" type="text" name="Strasse"></input>
+
+		<h3>Hausnummer</h3>
+		<input id="checkoutDataHouseNmb" type="text" name="Hausnummer"></input>
+
+		<h3>Postleitzahl</h3>
+		<input id="checkoutDataPostalcode" type="text" name="Postleitzahl"></input>
+
+		<h3>Stadt</h3>
+		<input id="checkoutDataCity" type="text" name="Stadtname"></input>
+
+		<p>
+			<button id="checkoutVerify">CHECKOUT</button>
+		</p>
+
+		<select id="shippingType"><option disabled selected>Bitte
+				Versanddienstleister auswählen</option></select>
+	</fieldset>
+
+
+</body>
+</html>

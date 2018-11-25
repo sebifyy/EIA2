@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+@import url('https://fonts.googleapis.com/css?family=Muli:800');
+
+@import url('https://fonts.googleapis.com/css?family=Yantramanav');
+
+h1 {
+	font-family: Oswald;
+	text-transform: uppercase;
+	color: #414141;
+	display: block;
+	padding: 0 30%;
+	background-color: #cecece;
+	letter-spacing: 5px;
+	margin-bottom: 0px;
+}
+
+h2 {
+	font-family: Muli;
+	text-transform: uppercase;
+	font-size: 25px;
+}
+
+p {
+	font-family: Yantramanav, sans-serif;
+}
+
+select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	border: none;
+	width: 300px;
+	background-color: #e5e5e5;
+	font-size: 20px;
+	font-family: Yantramanav, san-serif;
+	cursor: pointer;
+	padding-left: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+fieldset {
+	background-color: #d9d9d9;
+	border: none;
+	margin-top: 0px;
+	width: 30%;
+}
+
+#currentSelection {
+	background-color: #d9d9d9;
+	border: 1px solid black;
+	width: 30%;
+	position: relative;
+	bottom: 300px;
+	right: -500px;
+	top: -400px;
+	position: relative;
+}
