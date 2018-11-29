@@ -13,6 +13,7 @@ namespace L06_SendData {
 
     function handleListen(): void {                 //Neue function
         console.log("Listening");                   //"Listening" wird in der console ausgegeben
+
     }
 
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {      //Neue function
@@ -21,7 +22,8 @@ namespace L06_SendData {
         _response.setHeader("content-type", "text/html; charset=utf-8");                                //html Dokument wird im <header> verändert
         _response.setHeader("Access-Control-Allow-Origin", "*");                                        //html Dokument wird im <header> verändert
 
-        _response.write(_request.url);                                                                  //Sendet <header> Informationen an Client
+        _response.write(_request.url);
+        console.log(_request.url);
 
         _response.end();                                                                                //Beendet das Senden der Serverantwort
     }
